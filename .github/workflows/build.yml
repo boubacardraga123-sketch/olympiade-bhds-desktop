@@ -21,8 +21,10 @@ jobs:
       - name: Installer dépendances
         run: npm install
 
-      - name: Compiler .exe
+     - name: Compiler .exe
         run: npm run build:win
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
 
       - name: Upload .exe
         uses: actions/upload-artifact@v4
