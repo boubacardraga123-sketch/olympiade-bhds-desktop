@@ -2,9 +2,9 @@ name: Build Olympiade BHDS
 
 on:
   push:
-    tags:
-     - 'v*'
-      - 'V*' 
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
   build-windows:
