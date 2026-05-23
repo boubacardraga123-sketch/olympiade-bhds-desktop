@@ -3,7 +3,8 @@ name: Build Olympiade BHDS
 on:
   push:
     tags:
-      - 'v*'
+     - 'v*'
+      - 'V*' 
 
 jobs:
   build-windows:
