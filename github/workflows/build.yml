@@ -1,0 +1,31 @@
+name: Build Olympiade BHDS
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build-windows:
+    name: Windows .exe
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Installer dépendances
+        run: npm install
+
+      - name: Compiler .exe
+        run: npm run build:win
+
+      - name: Upload .exe
+        uses: actions/upload-artifact@v4
+        with:
+          name: olympiade-bhds-windows
+          path: dist/*.exe
+          retention-days: 30
